@@ -52,7 +52,7 @@ class _HomePageState extends State<HomePage> {
                         textStyle: const TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
-                      color: Color(0xFF3670CF),
+                      color: kblue,
                     )),
                   )
                 ],

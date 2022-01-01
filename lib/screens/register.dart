@@ -45,10 +45,11 @@ class _RegisterState extends State<Register> {
                 child: Text(
                   "Create Account",
                   style: GoogleFonts.aclonica(
-                      textStyle: TextStyle(
-                          fontSize: 35,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xFF044EBE))),
+                    textStyle: TextStyle(
+                        fontSize: 35,
+                        fontWeight: FontWeight.bold,
+                        color: kblue),
+                  ),
                 ),
               ),
               Padding(
@@ -140,14 +141,57 @@ class _RegisterState extends State<Register> {
                 child: _buildText("How Did You Hear About Us? (Optional)"),
               ),
               GestureDetector(
-                onTap: ()=>showModalBottomSheet(context: context, builder: (_)=> Container(
-                  height: 500,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-
-                  ),
-
-                )),
+                onTap: () => showModalBottomSheet(
+                    context: context,
+                    builder: (_) => Container(
+                          height: 500,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                          ),
+                          child: Column(
+                            children: [
+                              Padding(padding: padding15),
+                              Text(
+                                "How Did You Hear about Us? (Optional)",
+                                style: GoogleFonts.montserrat(
+                                    textStyle: const TextStyle(
+                                        fontSize: 18.0,
+                                        color: kblue,
+                                        fontWeight: FontWeight.bold)),
+                              ),
+                              Stack(
+                                children: [
+                                  Positioned(
+                                    left: 30,
+                                    top: 25,
+                                    child: Icon(Icons.search, color: Colors.grey.withOpacity(0.8),),
+                                  ),
+                                Container(
+                                  margin: EdgeInsets.only(left: 15, right: 15, top: 10),
+                                  height: 50,
+                                  width: MediaQuery.of(context).size.width,
+                                  decoration: BoxDecoration(
+                                  ),
+                                  child: const TextField(
+                                    decoration: InputDecoration(
+                                      border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.all(Radius.circular(10),
+                                        ),
+                                      ),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.all(Radius.circular(10),),
+                                        borderSide: BorderSide(
+                                          color: kblue,
+                                        )
+                                      )
+                                    ),
+                                  ),
+                                ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        )),
                 child: Stack(
                   children: <Widget>[
                     Padding(
@@ -157,14 +201,15 @@ class _RegisterState extends State<Register> {
                     Positioned(
                       right: 20,
                       top: 25,
-                      child: Icon(Icons.arrow_drop_down_outlined, size: 30, color: Colors.black,),),
-
+                      child: Icon(
+                        Icons.arrow_drop_down_outlined,
+                        size: 30,
+                        color: Colors.black,
+                      ),
+                    ),
                   ],
                 ),
               ),
-
-
-
             ],
           ),
         ),
@@ -184,25 +229,24 @@ class _RegisterState extends State<Register> {
     );
   }
 }
+
 Container _buildContainer(context, String hinttext) => Container(
-  height: 50,
-  width: MediaQuery.of(context).size.width,
-  decoration: BoxDecoration(
-    borderRadius: BorderRadius.circular(10),
-    color: Colors.grey.withOpacity(0.2),
-  ),
-  child: Padding(
-    padding: const EdgeInsets.all(8.0),
-    child: TextField(
-      decoration: InputDecoration(
-        hintText: hinttext,
-        hintStyle: TextStyle(
-            color: Colors.grey.withOpacity(0.9),
-            fontWeight: FontWeight.bold),
-        border: InputBorder.none,
+      height: 50,
+      width: MediaQuery.of(context).size.width,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        color: Colors.grey.withOpacity(0.2),
       ),
-    ),
-  ),
-);
-
-
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: TextField(
+          decoration: InputDecoration(
+            hintText: hinttext,
+            hintStyle: TextStyle(
+                color: Colors.grey.withOpacity(0.9),
+                fontWeight: FontWeight.bold),
+            border: InputBorder.none,
+          ),
+        ),
+      ),
+    );
