@@ -164,29 +164,33 @@ class _RegisterState extends State<Register> {
                                   Positioned(
                                     left: 30,
                                     top: 25,
-                                    child: Icon(Icons.search, color: Colors.grey.withOpacity(0.8),),
-                                  ),
-                                Container(
-                                  margin: EdgeInsets.only(left: 15, right: 15, top: 10),
-                                  height: 50,
-                                  width: MediaQuery.of(context).size.width,
-                                  decoration: BoxDecoration(
-                                  ),
-                                  child: const TextField(
-                                    decoration: InputDecoration(
-                                      border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.all(Radius.circular(10),
-                                        ),
-                                      ),
-                                      enabledBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.all(Radius.circular(10),),
-                                        borderSide: BorderSide(
-                                          color: kblue,
-                                        )
-                                      )
+                                    child: Icon(
+                                      Icons.search,
+                                      color: Colors.grey.withOpacity(0.8),
                                     ),
                                   ),
-                                ),
+                                  Container(
+                                    margin: EdgeInsets.only(
+                                        left: 15, right: 15, top: 10),
+                                    height: 50,
+                                    width: MediaQuery.of(context).size.width,
+                                    decoration: BoxDecoration(),
+                                    child: const TextField(
+                                      decoration: InputDecoration(
+                                          border: OutlineInputBorder(
+                                            borderRadius: BorderRadius.all(
+                                              Radius.circular(10),
+                                            ),
+                                          ),
+                                          enabledBorder: OutlineInputBorder(
+                                              borderRadius: BorderRadius.all(
+                                                Radius.circular(10),
+                                              ),
+                                              borderSide: BorderSide(
+                                                color: kblue,
+                                              ))),
+                                    ),
+                                  ),
                                 ],
                               ),
                             ],
@@ -210,6 +214,46 @@ class _RegisterState extends State<Register> {
                   ],
                 ),
               ),
+              SizedBox(
+                height: 10,
+              ),
+              Padding(
+                padding: padding15,
+                child: Container(
+                  height: 50.0,
+                  width: MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                    color: kblue,
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(10),
+                      topRight: Radius.circular(10),
+                      bottomRight: Radius.circular(10),
+                      bottomLeft: Radius.circular(0),
+                    ),
+                  ),
+                  child: const Padding(
+                    padding: EdgeInsets.all(12.0),
+                    child: Text(
+                      "CREATE ACCOUNT",
+                      style: TextStyle(color: Colors.white, fontSize: 18.0),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 20,),
+              GestureDetector(
+                onTap: ()=>Navigator.of(context).pop(),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 90),
+                  child: Text(
+                    "Already have an account? Log In",
+                    style: TextStyle(
+                        color: kblue, fontSize: 15, fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              )
             ],
           ),
         ),
