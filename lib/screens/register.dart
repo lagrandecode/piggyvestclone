@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:game_store_app/constants/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Register extends StatefulWidget {
@@ -51,43 +52,119 @@ class _RegisterState extends State<Register> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 20.0),
+                padding: const EdgeInsets.only(left: 20.0, right: 10),
                 child: Text(
                   "Create a free account and start a proper \nfinancial journey with PiggyVest",
                   style: GoogleFonts.aclonica(
                     textStyle: TextStyle(
-                      fontSize: 15,
+                      fontSize: 13,
                     ),
                   ),
                 ),
               ),
+              // this is representing the full name of the users
+
               SizedBox(
                 height: 15,
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 20.0, top: 20.0),
+                padding: padding20,
                 child: _buildText("Full Name"),
               ),
               Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: Container(
-                  height: 50,
-                  width: MediaQuery.of(context).size.width,
+                padding: padding15,
+                child: _buildContainer(context, "Full Name"),
+              ),
+
+              // this is reprensenting the email address of the users
+
+              SizedBox(
+                height: 15,
+              ),
+              Padding(
+                padding: padding20,
+                child: _buildText("Email Address"),
+              ),
+              Padding(
+                padding: padding15,
+                child: _buildContainer(context, "Email Address"),
+              ),
+
+              //this is representing the phone number of the users
+
+              SizedBox(
+                height: 15,
+              ),
+              Padding(
+                padding: padding20,
+                child: _buildText("Phone Number"),
+              ),
+              Padding(
+                padding: padding15,
+                child: _buildContainer(context, "Phone Number"),
+              ),
+
+              //this is representing the password of the users
+
+              SizedBox(
+                height: 15,
+              ),
+              Padding(
+                padding: padding20,
+                child: _buildText("Password"),
+              ),
+              Padding(
+                padding: padding15,
+                child: _buildContainer(context, "Password"),
+              ),
+
+              //this is representing the referral phone or code
+
+              SizedBox(
+                height: 15,
+              ),
+              Padding(
+                padding: padding20,
+                child: _buildText("Refferer Phone Or Promo Code (Optional)"),
+              ),
+              Padding(
+                padding: padding15,
+                child: _buildContainer(context, "Refferer Phone Or Code"),
+              ),
+
+              SizedBox(
+                height: 15,
+              ),
+              Padding(
+                padding: padding20,
+                child: _buildText("How Did You Hear About Us? (Optional)"),
+              ),
+              GestureDetector(
+                onTap: ()=>showModalBottomSheet(context: context, builder: (_)=> Container(
+                  height: 500,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.grey.withOpacity(0.2),
+                    color: Colors.white,
+
                   ),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      hintText: "Full Name",
-                      hintStyle: TextStyle(
-                          color: Colors.grey.withOpacity(0.9),
-                          fontWeight: FontWeight.bold),
-                      border: InputBorder.none,
+
+                )),
+                child: Stack(
+                  children: <Widget>[
+                    Padding(
+                      padding: padding15,
+                      child: _buildContainer(context, "Click To Select"),
                     ),
-                  ),
+                    Positioned(
+                      right: 20,
+                      top: 25,
+                      child: Icon(Icons.arrow_drop_down_outlined, size: 30, color: Colors.black,),),
+
+                  ],
                 ),
-              )
+              ),
+
+
+
             ],
           ),
         ),
@@ -107,3 +184,25 @@ class _RegisterState extends State<Register> {
     );
   }
 }
+Container _buildContainer(context, String hinttext) => Container(
+  height: 50,
+  width: MediaQuery.of(context).size.width,
+  decoration: BoxDecoration(
+    borderRadius: BorderRadius.circular(10),
+    color: Colors.grey.withOpacity(0.2),
+  ),
+  child: Padding(
+    padding: const EdgeInsets.all(8.0),
+    child: TextField(
+      decoration: InputDecoration(
+        hintText: hinttext,
+        hintStyle: TextStyle(
+            color: Colors.grey.withOpacity(0.9),
+            fontWeight: FontWeight.bold),
+        border: InputBorder.none,
+      ),
+    ),
+  ),
+);
+
+
