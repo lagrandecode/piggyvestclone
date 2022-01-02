@@ -145,7 +145,7 @@ class _RegisterState extends State<Register> {
                     context: context,
                     builder: (_) => Container(
                           height: 500,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: Colors.white,
                           ),
                           child: Column(
@@ -177,6 +177,10 @@ class _RegisterState extends State<Register> {
                                     decoration: BoxDecoration(),
                                     child: const TextField(
                                       decoration: InputDecoration(
+                                          hintText: "Search for Options",
+                                          hintStyle: TextStyle(
+                                              color: Colors.grey,
+                                              fontWeight: FontWeight.bold),
                                           border: OutlineInputBorder(
                                             borderRadius: BorderRadius.all(
                                               Radius.circular(10),
@@ -241,15 +245,19 @@ class _RegisterState extends State<Register> {
                   ),
                 ),
               ),
-              SizedBox(height: 20,),
+              SizedBox(
+                height: 20,
+              ),
               GestureDetector(
-                onTap: ()=>Navigator.of(context).pop(),
+                onTap: () => Navigator.of(context).pop(),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 90),
                   child: Text(
                     "Already have an account? Log In",
                     style: TextStyle(
-                        color: kblue, fontSize: 15, fontWeight: FontWeight.bold),
+                        color: kblue,
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold),
                     textAlign: TextAlign.center,
                   ),
                 ),
